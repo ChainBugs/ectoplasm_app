@@ -31,12 +31,12 @@ class Configuration {
      * Missing dependencies should result in a exception
      */
 
-    if (json["swBaseURL"] == null || json["apiKey"] == null) {
+    if (json["dndBaseUrl"] == null || json["apiKey"] == null) {
       throw Exception("Missing dependencies in config file.");
     }
     return Configuration(
       flavor: flavor,
-      swBaseURL: json["swBaseUrl"],
+      swBaseURL: json["dndBaseUrl"],
       apiKey: json["apiKey"],
     );
   }

@@ -1,4 +1,4 @@
 {
     "apiKey": "",
-    "baseUrl": "https://swapi.dev/api"
+    "dndBaseUrl": "https://www.dnd5eapi.co/api"
 }
