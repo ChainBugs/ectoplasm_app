@@ -1,6 +1,25 @@
 part of 'home_bloc.dart';
 
-@immutable
-abstract class HomeState {}
+class HomeState extends Equatable {
+  final int timesPushed;
+  final int counter;
 
-class HomeInitial extends HomeState {}
+  HomeState({
+    this.timesPushed,
+    this.counter,
+  });
+
+  HomeState copyWith({
+    int timesPushed,
+    int counter,
+  }) {
+    return HomeState(
+      timesPushed: timesPushed ?? this.timesPushed,
+      counter: counter ?? this.counter,
+    );
+  }
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [timesPushed, counter];
+}
