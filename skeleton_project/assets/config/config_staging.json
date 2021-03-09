@@ -1,4 +1,4 @@
 {
     "apiKey": "",
-    "swBaseUrl": "https://www.dnd5eapi.co/api"
+    "dndBaseUrl": "https://www.dnd5eapi.co/api"
 }
