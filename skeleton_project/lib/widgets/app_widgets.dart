@@ -10,7 +10,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       child: Text(text),
-      onPressed: () => onPressed,
+      onPressed: onPressed,
       style: style,
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeleton_project/screens/home/bloc/home_bloc.dart';
+import 'package:skeleton_project/screens/profile_screen/profile_screen.dart';
+import 'package:skeleton_project/widgets/app_widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home_screen";
@@ -44,6 +46,16 @@ class _HomeScreenContent extends StatelessWidget {
                     '${state.counter}',
                     style: Theme.of(context).textTheme.headline4,
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 40),
+                    child: AppButton(
+                      text: "Go to another page",
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(ProfileScreen.routeName);
+                      },
+                    ),
+                  ),
                   Spacer(),
                   Stack(
                     alignment: Alignment.bottomCenter,
@@ -53,6 +65,7 @@ class _HomeScreenContent extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: FloatingActionButton(
+                            heroTag: 'btn1',
                             tooltip: 'Decrement',
                             onPressed: () {
                               BlocProvider.of<HomeBloc>(context)
@@ -67,6 +80,7 @@ class _HomeScreenContent extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: FloatingActionButton(
+                            heroTag: 'btn2',
                             onPressed: () {
                               BlocProvider.of<HomeBloc>(context)
                                   .add(HomeIncrementEvent());
