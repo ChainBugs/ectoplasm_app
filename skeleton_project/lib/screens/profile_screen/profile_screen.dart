@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeleton_project/models/dndClass.dart';
 import 'package:skeleton_project/repositories/dnd_repository.dart';
 import 'package:skeleton_project/screens/profile_screen/bloc/profile_bloc.dart';
 
@@ -35,7 +38,10 @@ class _ProfileScreenContent extends StatelessWidget {
                 children: <Widget>[
                   Text('This is the Profile page'),
                   SizedBox(height: 50),
-                  Text('DnD Classes')
+                  Text('DnD Classes'),
+                  SizedBox(height: 20),
+                  if (state.classes.length != 0)
+                    dndClassTileBuilder(state.classes),
                 ],
               ),
             );
@@ -46,9 +52,34 @@ class _ProfileScreenContent extends StatelessWidget {
   }
 
   Widget dndClassTileBuilder(List<DnDClass> classes) {
+    final random = Random();
     return Container(
       height: 200,
-      child: ListView.builder(itemBuilder: (context, index) {}),
+      child: ListView.builder(
+          itemCount: classes.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.all(10),
+              child: Container(
+                height: 30,
+                width: 20,
+                color: Color.fromRGBO(
+                  random.nextInt(200),
+                  random.nextInt(200),
+                  random.nextInt(200),
+                  1,
+                ),
+                child: Center(
+                  child: Text(
+                    classes[index].name,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }),
     );
   }
 }

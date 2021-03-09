@@ -21,7 +21,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     ProfileEvent event,
   ) async* {
     if (event is ProfileInitialEvent) {
-      dnDRepository.getClasses();
+      final classes = await dnDRepository.getClasses();
+      final newState = state.copyWith(classes: classes);
+      yield newState;
     }
   }
 }
