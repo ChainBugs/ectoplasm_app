@@ -22,12 +22,13 @@ class _HomeScreenContent extends StatelessWidget {
       ),
       body: BlocListener<HomeBloc, HomeState>(
         listener: (context, state) {},
-        child: BlocBuilder(
+        child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(height: 100),
                   Text(
                     'You have pushed the button this many times:',
                   ),
@@ -35,26 +36,54 @@ class _HomeScreenContent extends StatelessWidget {
                     '${state.timesPushed}',
                     style: Theme.of(context).textTheme.headline4,
                   ),
-                  FloatingActionButton(
-                    onPressed: () {
-                      BlocProvider.of<HomeBloc>(context)
-                          .add(HomeDecrementEvent());
-                    },
-                    tooltip: 'Decrement',
-                    child: Icon(Icons.remove),
-                  )
+                  SizedBox(height: 30),
+                  Text(
+                    'The counter score is on:',
+                  ),
+                  Text(
+                    '${state.counter}',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Spacer(),
+                  Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: FloatingActionButton(
+                            tooltip: 'Decrement',
+                            onPressed: () {
+                              BlocProvider.of<HomeBloc>(context)
+                                  .add(HomeDecrementEvent());
+                            },
+                            child: Icon(Icons.remove),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              BlocProvider.of<HomeBloc>(context)
+                                  .add(HomeIncrementEvent());
+                            },
+                            tooltip: 'Increment',
+                            child: Icon(Icons.add),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 50),
                 ],
               ),
             );
           },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          BlocProvider.of<HomeBloc>(context).add(HomeIncrementEvent());
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
