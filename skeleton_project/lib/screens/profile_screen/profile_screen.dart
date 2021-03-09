@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeleton_project/models/dndClass.dart';
 import 'package:skeleton_project/repositories/dnd_repository.dart';
 import 'package:skeleton_project/screens/profile_screen/bloc/profile_bloc.dart';
+import 'package:skeleton_project/widgets/progressBalls.dart';
 
 class ProfileScreen extends StatelessWidget {
   final DnDRepository dnDRepository;
@@ -40,8 +41,9 @@ class _ProfileScreenContent extends StatelessWidget {
                   SizedBox(height: 50),
                   Text('DnD Classes'),
                   SizedBox(height: 20),
-                  if (state.classes.length != 0)
-                    dndClassTileBuilder(state.classes),
+                  state.classes.length != 0
+                      ? dndClassTileBuilder(state.classes)
+                      : ProgressBalls(),
                 ],
               ),
             );
@@ -61,8 +63,9 @@ class _ProfileScreenContent extends StatelessWidget {
             return Padding(
               padding: EdgeInsets.all(10),
               child: Container(
-                height: 30,
+                height: 35,
                 width: 20,
+                margin: EdgeInsets.only(left: 60, right: 60),
                 color: Color.fromRGBO(
                   random.nextInt(200),
                   random.nextInt(200),
