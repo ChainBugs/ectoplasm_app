@@ -35,13 +35,20 @@ class _ProfileScreenContent extends StatelessWidget {
                 children: <Widget>[
                   Text('This is the Profile page'),
                   SizedBox(height: 50),
-                  Text('Another Text')
+                  Text('DnD Classes')
                 ],
               ),
             );
           },
         ),
       ),
+    );
+  }
+
+  Widget dndClassTileBuilder(List<DnDClass> classes) {
+    return Container(
+      height: 200,
+      child: ListView.builder(itemBuilder: (context, index) {}),
     );
   }
 }
