@@ -43,7 +43,11 @@ class _ProfileScreenContent extends StatelessWidget {
                   SizedBox(height: 20),
                   state.classes.length != 0
                       ? dndClassTileBuilder(state.classes)
-                      : ProgressBalls(),
+                      : Padding(
+                          padding: EdgeInsets.only(top: 30),
+                          child: ProgressBalls(
+                            color: Colors.indigo,
+                          )),
                 ],
               ),
             );
