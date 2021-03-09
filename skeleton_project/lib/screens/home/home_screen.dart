@@ -20,25 +20,42 @@ class _HomeScreenContent extends StatelessWidget {
       appBar: AppBar(
         title: Text("Epic App"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: BlocListener<HomeBloc, HomeState>(
+        listener: (context, state) {},
+        child: BlocBuilder(
+          builder: (context, state) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'You have pushed the button this many times:',
+                  ),
+                  Text(
+                    '${state.timesPushed}',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  FloatingActionButton(
+                    onPressed: () {
+                      BlocProvider.of<HomeBloc>(context)
+                          .add(HomeDecrementEvent());
+                    },
+                    tooltip: 'Decrement',
+                    child: Icon(Icons.remove),
+                  )
+                ],
+              ),
+            );
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          BlocProvider.of<HomeBloc>(context).add(HomeIncrementEvent());
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
