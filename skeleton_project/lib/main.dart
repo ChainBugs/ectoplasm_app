@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skeleton_project/repositories/dnd_repository.dart';
 import 'package:skeleton_project/screens/home/home_screen.dart';
 import 'package:skeleton_project/screens/profile_screen/profile_screen.dart';
 
@@ -8,6 +9,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+  final dndRepository = DnDRepository("https://www.dnd5eapi.co/api/");
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        ProfileScreen.routeName: (context) => ProfileScreen(),
+        ProfileScreen.routeName: (context) => ProfileScreen(dndRepository),
       },
     );
   }
