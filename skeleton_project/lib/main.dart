@@ -10,7 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
-  final dndRepository = DnDRepository("https://www.dnd5eapi.co/api/");
+  final dndRepository = DnDRepository("www.dnd5eapi.co");
 
   @override
   Widget build(BuildContext context) {

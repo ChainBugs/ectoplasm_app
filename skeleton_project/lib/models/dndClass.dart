@@ -8,4 +8,12 @@ class DnDClass {
     this.index,
     this.url,
   });
+
+  factory DnDClass.fromJson(Map<String, dynamic> json) {
+    return DnDClass(
+      name: json['name'],
+      index: json['index'],
+      url: json['url'],
+    );
+  }
 }

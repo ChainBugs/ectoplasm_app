@@ -1,16 +1,28 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:skeleton_project/models/dndClass.dart';
 
 class DnDRepository {
   final String baseUrl;
 
   DnDRepository(this.baseUrl);
 
-  getClasses() async {
-    final path = "/classes";
-    final uri = Uri(path: "$baseUrl$path");
+  Future<List<DnDClass>> getClasses() async {
+    final path = "/api/classes";
     final response = await http.get(
-      uri,
+      Uri.https(baseUrl, path),
     );
-    print(response.body);
+    if (response.statusCode == 200) {
+      final decodedRespone = jsonDecode(response.body);
+      final results = decodedRespone['results'] as List<dynamic>;
+      final dndClasses = results.map((classEntry) {
+        final dndClass = DnDClass.fromJson(classEntry);
+        return dndClass;
+      }).toList();
+      return dndClasses;
+    } else {
+      return [];
+    }
   }
 }
