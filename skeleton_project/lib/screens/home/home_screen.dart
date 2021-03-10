@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeleton_project/screens/camera_screen/camera_screen.dart';
 import 'package:skeleton_project/screens/home/bloc/home_bloc.dart';
 import 'package:skeleton_project/screens/profile_screen/profile_screen.dart';
 import 'package:skeleton_project/widgets/app_widgets.dart';
@@ -53,6 +54,15 @@ class _HomeScreenContent extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context)
                             .pushNamed(ProfileScreen.routeName);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 40),
+                    child: AppButton(
+                      text: "Go to camera page",
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(CameraScreen.routeName);
                       },
                     ),
                   ),
