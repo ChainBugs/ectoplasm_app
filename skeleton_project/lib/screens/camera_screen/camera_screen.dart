@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeleton_project/screens/camera_screen/bloc/camera_bloc.dart';
+import 'package:skeleton_project/screens/card_screen/card_screen.dart';
 import 'package:skeleton_project/widgets/app_widgets.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -33,8 +34,14 @@ class _CameraScreenContent extends StatelessWidget {
               Text('LAUNCH CAMERA'),
               AppButton(),
               Expanded(
-                  flex: 5,
-                  child: QRView(key: qrKey, onQRViewCreated: _onQRViewCreated))
+                flex: 5,
+                child: QRView(
+                  key: qrKey,
+                  onQRViewCreated: (controller) {
+                    _onQRViewCreated(controller, context);
+                  },
+                ),
+              )
             ]);
           },
         ),
@@ -42,10 +49,14 @@ class _CameraScreenContent extends StatelessWidget {
     );
   }
 
-  void _onQRViewCreated(QRViewController controller) {
+  void _onQRViewCreated(QRViewController controller, BuildContext context) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
       print("SOMETHING HAPPENED");
+      print("THIS IS SOME CONTEXT $context");
+      if (scanData.code != null) {
+        Navigator.of(context).pushNamed(CardScreen.routeName);
+      }
     });
   }
 

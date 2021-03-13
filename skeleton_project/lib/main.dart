@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skeleton_project/repositories/dnd_repository.dart';
 import 'package:skeleton_project/screens/camera_screen/camera_screen.dart';
+import 'package:skeleton_project/screens/card_screen/card_screen.dart';
 import 'package:skeleton_project/screens/home/home_screen.dart';
 import 'package:skeleton_project/screens/profile_screen/profile_screen.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         ProfileScreen.routeName: (context) => ProfileScreen(dndRepository),
         CameraScreen.routeName: (context) => CameraScreen(),
+        CardScreen.routeName: (context) => CardScreen(),
       },
     );
   }
