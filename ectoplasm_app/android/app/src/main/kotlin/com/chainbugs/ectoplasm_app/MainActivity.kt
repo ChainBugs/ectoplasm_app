@@ -1,4 +1,4 @@
-package com.example.skeleton_project
+package com.chainbugs.ectoplasm_app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243158983130",
+    "project_id": "ectoplasm-32d1e",
+    "storage_bucket": "ectoplasm-32d1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243158983130:android:26c88120710433c77ea0e3",
+        "android_client_info": {
+          "package_name": "com.chainbugs.ectoplasm_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243158983130-nbsb69c15qc3qmkh5n8hmmb4gr1eoctm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPxWlUJVdJQ-QhEj2FFYvrwKFRSd9aIb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243158983130-nbsb69c15qc3qmkh5n8hmmb4gr1eoctm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
