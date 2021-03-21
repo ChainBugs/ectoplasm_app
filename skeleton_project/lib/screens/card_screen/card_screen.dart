@@ -13,9 +13,16 @@ class CardScreen extends StatelessWidget {
   }
 }
 
+class CardScreenArguments {
+  final String qrCode;
+
+  CardScreenArguments({this.qrCode});
+}
+
 class _CardScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final CardScreenArguments args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("The Card Screen"),
@@ -32,6 +39,17 @@ class _CardScreenContent extends StatelessWidget {
                   SizedBox(height: 50),
                   Text('DnD Classes'),
                   SizedBox(height: 20),
+                  Container(
+                    height: 300,
+                    width: 300,
+                    color: Colors.deepPurple,
+                    child: Text(
+                      args.qrCode,
+                      style: TextStyle(
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             );
