@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ed0cfec-b2c9-4fdd-bee9-7b8d68046546" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton_project/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton_project/lib/models/dndClass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton_project/lib/models/dndClass.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton_project/lib/repositories/dnd_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton_project/lib/repositories/dnd_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton_project/lib/screens/profile_screen/bloc/profile_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton_project/lib/screens/profile_screen/bloc/profile_bloc.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +37,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1615329372756">
+    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1616340759051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1615329372756" />
+    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1616340759051" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1615311157123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
