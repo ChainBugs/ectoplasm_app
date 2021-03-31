@@ -49,11 +49,11 @@ class _CardScreenContent extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Name: ${state.investigator.name}" ?? ""),
+                  Text("Name: ${state.investigator?.name}" ?? ""),
                   SizedBox(height: 50),
-                  Text("Role: ${state.investigator.role}" ?? ""),
+                  Text("Role: ${state.investigator?.role}" ?? ""),
                   SizedBox(height: 50),
-                  Text("Birthplace: ${state.investigator.birthplace}" ?? ""),
+                  Text("Birthplace: ${state.investigator?.birthplace}" ?? ""),
                   SizedBox(height: 20),
                   Container(
                     height: 300,

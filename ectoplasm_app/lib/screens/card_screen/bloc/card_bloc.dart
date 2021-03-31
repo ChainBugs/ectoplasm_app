@@ -17,7 +17,12 @@ class CardBloc extends Bloc<CardEvent, CardState> {
 
   CardBloc(this._ghostRepository, this._investigatorRepository,
       {this.investigatorID})
-      : super(CardState()) {
+      : super(CardState(
+            investigator: Investigator(
+          name: "",
+          birthplace: "",
+          role: "",
+        ))) {
     add(CardInitialEvent(investigatorID));
   }
 
