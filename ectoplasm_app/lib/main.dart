@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:skeleton_project/repositories/dnd_repository.dart';
+import 'package:skeleton_project/repositories/ghost_repository.dart';
+import 'package:skeleton_project/repositories/investigator_repository.dart';
 import 'package:skeleton_project/screens/camera_screen/camera_screen.dart';
 import 'package:skeleton_project/screens/card_screen/card_screen.dart';
 import 'package:skeleton_project/screens/home/home_screen.dart';
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   final dndRepository = DnDRepository("www.dnd5eapi.co");
+  final ghostRepository = GhostRepository();
+  final investigatorRepository = InvestigatorRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,8 @@ class MyApp extends StatelessWidget {
               ProfileScreen.routeName: (context) =>
                   ProfileScreen(dndRepository),
               CameraScreen.routeName: (context) => CameraScreen(),
-              CardScreen.routeName: (context) => CardScreen(),
+              CardScreen.routeName: (context) =>
+                  CardScreen(ghostRepository, investigatorRepository),
             },
           );
         }

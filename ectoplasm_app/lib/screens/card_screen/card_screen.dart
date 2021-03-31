@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeleton_project/repositories/ghost_repository.dart';
+import 'package:skeleton_project/repositories/investigator_repository.dart';
 import 'package:skeleton_project/screens/card_screen/bloc/card_bloc.dart';
 
 class CardScreen extends StatelessWidget {
+  final GhostRepository ghostRepository;
+  final InvestigatorRepository investigatorRepository;
+
+  CardScreen(this.ghostRepository, this.investigatorRepository);
+
   static const routeName = "/card_screen";
   @override
   Widget build(BuildContext context) {
+    final params =
+        ModalRoute.of(context).settings.arguments as CardScreenArguments;
     return BlocProvider<CardBloc>(
-      create: (context) => CardBloc(),
+      create: (context) => CardBloc(
+        this.ghostRepository,
+        this.investigatorRepository,
+        investigatorID: params.investigatorID,
+      ),
       child: _CardScreenContent(),
     );
   }
@@ -15,8 +28,9 @@ class CardScreen extends StatelessWidget {
 
 class CardScreenArguments {
   final String qrCode;
+  final String investigatorID;
 
-  CardScreenArguments({this.qrCode});
+  CardScreenArguments({this.qrCode, this.investigatorID});
 }
 
 class _CardScreenContent extends StatelessWidget {
@@ -35,9 +49,11 @@ class _CardScreenContent extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('This is the Card page'),
+                  Text("Name: ${state.investigator.name}" ?? ""),
                   SizedBox(height: 50),
-                  Text('DnD Classes'),
+                  Text("Role: ${state.investigator.role}" ?? ""),
+                  SizedBox(height: 50),
+                  Text("Birthplace: ${state.investigator.birthplace}" ?? ""),
                   SizedBox(height: 20),
                   Container(
                     height: 300,

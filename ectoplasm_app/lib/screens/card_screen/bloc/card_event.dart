@@ -6,3 +6,8 @@ abstract class CardEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class CardInitialEvent extends CardEvent {
+  final String investigatorID;
+  CardInitialEvent(this.investigatorID);
+}
