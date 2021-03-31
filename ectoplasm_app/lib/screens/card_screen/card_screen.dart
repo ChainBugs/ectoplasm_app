@@ -19,7 +19,7 @@ class CardScreen extends StatelessWidget {
       create: (context) => CardBloc(
         this.ghostRepository,
         this.investigatorRepository,
-        investigatorID: params.investigatorID,
+        investigatorID: params.qrCode,
       ),
       child: _CardScreenContent(),
     );
@@ -28,9 +28,8 @@ class CardScreen extends StatelessWidget {
 
 class CardScreenArguments {
   final String qrCode;
-  final String investigatorID;
 
-  CardScreenArguments({this.qrCode, this.investigatorID});
+  CardScreenArguments({this.qrCode});
 }
 
 class _CardScreenContent extends StatelessWidget {

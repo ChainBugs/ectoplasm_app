@@ -58,8 +58,7 @@ class _CameraScreenContent extends StatelessWidget {
         final qrCode = scanData.code;
         Navigator.of(context).pushNamed(
           CardScreen.routeName,
-          arguments: CardScreenArguments(
-              qrCode: qrCode, investigatorID: "demonologist"),
+          arguments: CardScreenArguments(qrCode: qrCode),
         );
       }
     });
