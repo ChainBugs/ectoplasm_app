@@ -8,6 +8,6 @@ abstract class CardEvent extends Equatable {
 }
 
 class CardInitialEvent extends CardEvent {
-  final String investigatorID;
-  CardInitialEvent(this.investigatorID);
+  final List<String> qrList;
+  CardInitialEvent(this.qrList);
 }

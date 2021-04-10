@@ -56,9 +56,10 @@ class _CameraScreenContent extends StatelessWidget {
       if (scanData.code != null) {
         controller.stopCamera();
         final qrCode = scanData.code;
+        final qrList = qrCode.split(" ");
         Navigator.of(context).pushNamed(
           CardScreen.routeName,
-          arguments: CardScreenArguments(qrCode: qrCode),
+          arguments: CardScreenArguments(qrList: qrList),
         );
       }
     });
